@@ -1,0 +1,35 @@
+To run an application in an optimal way, JVM divides memory into stack and heap memory.
+
+Whenever we declare new variables and objects, call a new method, declare a String, or 
+perform similar operations, JVM designates memory to these operations from either Stack Memory or 
+Heap Space.
+
+Stack Memory
+----------------------
+Stack Memory in Java is used for static memory allocation and the execution of a thread. 
+It contains primitive values that are specific to a method and references to objects referred from 
+the method that are in a heap
+
+Access to this memory is in Last-In-First-Out (LIFO) order. 
+Whenever we call a new method, a new block is created on top of the stack which 
+contains values specific to that method, like primitive variables and references to objects.
+
+1 It grows and shrinks as new methods are called and returned, respectively.
+2 Variables inside the stack exist only as long as the method that created them is running.
+3 It's automatically allocated and deallocated when the method finishes execution.
+4 If this memory is full, Java throws java.lang.StackOverFlowError.
+5 Access to this memory is fast when compared to heap memory.
+6 This memory is threadsafe, as each thread operates in its own stack.
+
+Heap Memory
+----------------------
+Heap space is used for the dynamic memory allocation of Java objects and JRE classes at runtime. 
+New objects are always created in heap space, and the references to these objects are stored in stack memory.
+
+1 It's accessed via complex memory management techniques that include the Young Generation, 
+  Old or Tenured Generation, and Permanent Generation.
+2 If heap space is full, Java throws java.lang.OutOfMemoryError.
+3 Access to this memory is comparatively slower than stack memory
+4 This memory, in contrast to stack, isn't automatically deallocated. 
+5 It needs Garbage Collector to free up unused objects so as to keep the efficiency of the memory usage.
+6 Unlike stack, a heap isn't threadsafe and needs to be guarded by properly synchronizing the code.
